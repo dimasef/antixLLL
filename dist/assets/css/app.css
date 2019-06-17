@@ -1,0 +1,8 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.container, h1, h2, h3 {
+  color: red; }
+
