@@ -10,8 +10,11 @@
 export default {
     data() {
         return {
-            message: '.. .. .. ..'
+            message: null
         }
+    },
+    created() {
+        this.message = this.$store.getters.getMessage;
     }
 }
 </script>

@@ -17,14 +17,13 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
-          filename: `${PATHS.assets}css/[name].css`
+          filename: `${PATHS.assets}css/[name].[hash].css`
         }),
         new CopyWebpackPlugin([
             { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },
             { from: `${PATHS.src}/static`, to: '' }
         ]),
         new HtmlWebpackPlugin({
-            hash: false,
             template: `${PATHS.src}/index.html`,
             filename: './index.html'
         })
@@ -33,10 +32,22 @@ module.exports = {
     entry: {
         app: PATHS.src, //точка входа, по дефолту смотрит в src/index.js
     },
-    output: {
-        filename: `${PATHS.assets}js/[name].js`,
+    output: { //точка выхода
+        filename: `${PATHS.assets}js/[name].[hash].js`,
         path: PATHS.dist,
         publicPath: '/'
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendors: {
+                    name: 'vendors',
+                    test: /node_modules/,
+                    chunks: 'all',
+                    enforce: true
+                },
+            }
+        }
     },
     module: {
         rules: [{
@@ -81,5 +92,4 @@ module.exports = {
             'vue$': 'vue/dist/vue.js'
         }
     }
-
 }
