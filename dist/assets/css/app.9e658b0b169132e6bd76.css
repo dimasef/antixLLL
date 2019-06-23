@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Mali';
+  src: url("/assets/fonts/Mali/Mali-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Mali';
+  src: url("/assets/fonts/Mali/Mali-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Mali';
+  src: url("/assets/fonts/Mali/Mali-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Mali';
+  src: url("/assets/fonts/Mali/Mali-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Mali';
+  src: url("/assets/fonts/Mali/Mali-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+
+.container {
+  font-family: Mali;
+  color: red; }
+
+section[data-v-1e4fb44e] {
+  color: violet;
+}
+

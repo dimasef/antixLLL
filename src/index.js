@@ -1,6 +1,6 @@
 
 import './js/config'
-import './scss/main.scss'
+import './assets/scss/main.scss'
 
 window.Vue = require('vue');
 

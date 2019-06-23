@@ -20,7 +20,8 @@ module.exports = {
           filename: `${PATHS.assets}css/[name].[hash].css`
         }),
         new CopyWebpackPlugin([
-            { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },
+            { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
+            { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
             { from: `${PATHS.src}/static`, to: '' }
         ]),
         new HtmlWebpackPlugin({
@@ -70,6 +71,11 @@ module.exports = {
             options: { name: '[name].[ext]' }
         },
         {
+            test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/, 
+            loader: 'file-loader',
+            options: { name: '[name].[ext]' }
+        },
+        {
             test: /\.(sa|sc|c)ss$/,
             use: [{
                     loader: MiniCssExtractPlugin.loader,
@@ -89,6 +95,7 @@ module.exports = {
     },
     resolve: {
         alias: {
+            '~': 'src',
             'vue$': 'vue/dist/vue.js'
         }
     }
