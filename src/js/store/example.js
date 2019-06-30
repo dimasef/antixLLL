@@ -1,6 +1,6 @@
 export default {
     state: {
-        message: "Hello from Vuex"
+        message: "Hello from Vuex ss"
     },
     mutations: {
 

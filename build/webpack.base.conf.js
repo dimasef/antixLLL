@@ -13,6 +13,7 @@ module.exports = {
     externals: {
         paths: PATHS // передаем константу PATH во вне. 
     },
+    
     // плагины 
     plugins: [
         new VueLoaderPlugin(),
