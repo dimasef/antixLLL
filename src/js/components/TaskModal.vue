@@ -9,7 +9,6 @@
                             <div class="modal-header">
                                 <h2>Creating new task</h2>
                             </div>
-                        
                             <div class="modal-body">
                                 <textarea id="task-text" class="valid" data-valid="area" v-model="taskParam.text" placeholder="Описание задачи"></textarea>
                                 <input id="task-time" class="valid" data-valid="time" v-model="taskParam.time" placeholder="Время выполнения">
@@ -50,7 +49,13 @@
         },
         methods: {
             async checkForm() {
-                await TaskService.insertTask({text: this.taskParam.text, time: this.taskParam.time, eternity: this.taskParam.eternity});
+                await TaskService.insertTask({
+                    text: this.taskParam.text, 
+                    time: this.taskParam.time, 
+                    eternity: this.taskParam.eternity
+                });
+                
+                this.$emit('update-list');
             }
         }
     }

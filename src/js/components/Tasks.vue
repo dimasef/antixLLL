@@ -1,6 +1,6 @@
 <template>
     <div>
-        <TaskModal />
+        <TaskModal @update-list="updateTaskList" />
         <div class="tasks">
             <div class="task-item" 
                 v-for="(task, index) in tasks"
@@ -26,11 +26,17 @@ export default {
         }
     },
 
-    async created() {
-        try {
-            this.tasks = await TaskService.getTasks();
-        } catch(err) {
-            console.error("Server is't working!");
+    created() {
+        this.updateTaskList()
+    },
+
+    methods: {
+        async updateTaskList() {
+            try {
+                this.tasks = await TaskService.getTasks();
+            } catch(err) {
+                console.error("Server is't working!");
+            }
         }
     }
 }
