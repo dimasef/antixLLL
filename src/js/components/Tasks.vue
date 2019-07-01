@@ -1,21 +1,25 @@
 <template>
-    <div class="tasks">
-        <div class="task-item" 
-            v-for="(task, index) in tasks"
-            :item="task"
-            :index="index"
-            :key="task._id"
-        >
-            <p>{{task.text}}</p>
+    <div>
+        <TaskModal />
+        <div class="tasks">
+            <div class="task-item" 
+                v-for="(task, index) in tasks"
+                :index="index"
+                :task_id="task._id"
+                :key="task._id"
+            >
+                <p>{{task.text}}</p>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import TaskService from '../TaskService'
+import TaskModal from './TaskModal.vue';
 export default {
     name: 'TaskComponent',
-
+    components: {TaskModal},
     data() {
         return {
             tasks: []

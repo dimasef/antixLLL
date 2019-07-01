@@ -20,9 +20,10 @@ export default class TaskService {
         });
     }
 
-    static insertTask(obj) {
-        return axios.post(url, {
-            obj
+
+    static insertTask(data) {
+        return axios.post(url, { 
+            data
         });
     }
 

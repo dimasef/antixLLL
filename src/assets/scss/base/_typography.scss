@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+ul, ol, dl {
+    margin:0 auto; padding:0
+}
+
+a {
+    outline: none;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+  
+
+[hidden] {
+    display: none !important;
+}

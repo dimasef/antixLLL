@@ -13,11 +13,10 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const tasks = await loadPostCollection();
     await tasks.insertOne({
-        task_id: req.body.task_id,
-        text: req.body.text,
-        time: req.body.time,
-        doneStatus: req.body.doneStatus,
-        eternity: req.body.eternity,
+        text: req.body.data.text,
+        time: req.body.data.time,
+        doneStatus: false,
+        eternity: req.body.data.eternity,
         createdAt: new Date()
     });
     res.status(201).send();
