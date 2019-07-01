@@ -1,0 +1,32 @@
+form {
+    textarea, 
+    input[type=text],
+    select {
+        background: white;
+        border: 0px;
+        border-radius: 2px;
+        font-size: 14px;
+    }
+
+    .task-deskription {
+        width: 100%;
+        resize: none;
+        height: 74px;
+    }
+
+    .task-time {
+        display: flex;
+        margin-top: 10px;
+        &--execution {
+            flex: 5;
+            margin-right: 14px;
+            height: 38px;
+        }
+        &--value {
+            -webkit-appearance: none;
+            flex: 2;
+            height: 38px;
+        }
+    }
+
+}

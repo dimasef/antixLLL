@@ -7,15 +7,17 @@
                     <div class="modal-container" @click.stop>
                         <form action="/" method="post" @submit.prevent="checkForm">
                             <div class="modal-header">
-                                <h2>Creating new task</h2>
+                                <h2 class="modal-title">Creating new task</h2>
                             </div>
                             <div class="modal-body">
-                                <textarea id="task-text" class="valid" data-valid="area" v-model="taskParam.text" placeholder="Описание задачи"></textarea>
-                                <input id="task-time" class="valid" data-valid="time" v-model="taskParam.time" placeholder="Время выполнения">
-                                <select>
-                                    <option value="1">мин</option>
-                                    <option value="2">часы</option>
-                                </select>
+                                <textarea class="task-deskription valid" v-model="taskParam.text" placeholder="Task description"></textarea>
+                                <div class="task-time">
+                                    <input class="task-time--execution" type="text" v-model="taskParam.time" placeholder="Execution time">
+                                    <select class="task-time--value">
+                                        <option value="1">мин</option>
+                                        <option value="2">часы</option>
+                                    </select>
+                                </div>
                                  <label>
                                     <input id="eternity" v-model="taskParam.eternity" class="valid" data-valid="checkbox" type="checkbox" />
                                     <span class="dark-color">Ежедневная задача</span>
