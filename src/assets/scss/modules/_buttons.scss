@@ -1,0 +1,24 @@
+.btn {
+    border: 0px;
+    border-radius: 2px;
+    font-size: 14px;
+    color: white;
+    background-size: 200% 200%;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+    &-primary {
+        background: linear-gradient(-90deg, #4a1b9e, #ce3ee6);
+        @include animationGradient(3s);
+    }
+    &-circle {
+        border-radius: 50%;
+        @include size(50px);
+        line-height: 1;
+    }
+    
+    .plus-icon {
+        background-image: url(/assets/img/plus.svg);
+        display: inline-block;
+        @include size(20px);
+    }
+}

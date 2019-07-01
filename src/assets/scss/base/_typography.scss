@@ -13,9 +13,14 @@ ul, ol, dl {
 }
 
 a {
-    outline: none;
     &:hover, &:focus {
       text-decoration: none;
+    }
+}
+
+button, input, textarea {
+    &:focus {
+        outline: none;
     }
 }
 

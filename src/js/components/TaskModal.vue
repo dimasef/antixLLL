@@ -1,8 +1,8 @@
 <template>
     <div>
-        <button @click="showModal = !showModal" class="">Show Modal</button>
+        <button @click="onModalToggle" class="btn btn-primary btn-circle"><i class="plus-icon"></i></button><span>Task list:</span>
         <transition name="modal">
-            <div class="modal" v-show="showModal" @click="showModal = false">
+            <div class="modal" v-show="showModal" @click="onModalToggle">
                 <div class="modal-wrapper">
                     <div class="modal-container" @click.stop>
                         <form action="/" method="post" @submit.prevent="checkForm">
@@ -58,7 +58,15 @@
                 });
                 
                 this.$emit('update-list');
+            },
+
+            onModalToggle() {
+                this.showModal = !this.showModal;
             }
+        },
+
+        computed: {
+
         }
     }
 </script>
