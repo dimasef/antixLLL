@@ -1,3 +1,51 @@
 body {
     font-family: $font-base;
+    margin: 0;
+    background-color: $bg-body;
+    padding-top: 24px;
 }
+
+/* Container */
+.container {
+    width: 100%;
+    padding-right: ($column-gap / 2);
+    padding-left: ($column-gap / 2);
+    margin-right: auto;
+    margin-left: auto;
+    @each $breakpoint, $width in $container-widths {
+      @include device-up($breakpoint, $grid-breakpoints) {
+        max-width: $width;
+      }
+    }
+  }
+
+  /* Column wrap */
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ($column-gap / -2);
+    margin-left: ($column-gap / -2);
+  }
+
+  .stab {
+      width: 100%;
+      border-radius: 2px;
+      height: 106px;
+      background: white;
+      margin-bottom: 34px;
+  }
+
+  .task-list {
+      &--header {
+        display: flex;
+        align-items: center;
+        .list-title {
+            font-size: 36px;
+            padding-left: 7px;
+        }
+      } 
+
+      &--content {
+          
+    } 
+  }

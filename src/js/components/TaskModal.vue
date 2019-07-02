@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <button @click="onModalToggle" class="btn btn-primary btn-circle"><i class="plus-icon"></i></button><span>Task list:</span>
+    <div class="task-list--header">
+        <button @click="onModalToggle" class="btn btn-primary btn-circle animated">
+            <i class="plus-icon"></i>
+        </button>
+        <span class="list-title">Task list:</span>
         <transition name="modal">
             <div class="modal" v-show="showModal" @click="onModalToggle">
                 <div class="modal-wrapper">
@@ -9,23 +12,24 @@
                             <div class="modal-header">
                                 <h2 class="modal-title">Creating new task</h2>
                             </div>
+
                             <div class="modal-body">
                                 <textarea class="task-deskription valid" v-model="taskParam.text" placeholder="Task description"></textarea>
                                 <div class="task-time">
                                     <input class="task-time--execution" type="text" v-model="taskParam.time" placeholder="Execution time">
                                     <select class="task-time--value">
-                                        <option value="1">мин</option>
-                                        <option value="2">часы</option>
+                                        <option value="1">min</option>
+                                        <option value="2">hour</option>
                                     </select>
                                 </div>
                                  <label>
-                                    <input id="eternity" v-model="taskParam.eternity" class="valid" data-valid="checkbox" type="checkbox" />
-                                    <span class="dark-color">Ежедневная задача</span>
+                                    <input class="checkbox-style" v-model="taskParam.eternity" type="checkbox" />
+                                    <span class="checkbox-style-label">Daily task</span>
                                 </label>
                             </div>
 
-                            <div class="modal-footer ">
-                                <input type="submit" class="" value="Create" />
+                            <div class="modal-footer align-center">
+                                <input type="submit" class="btn btn-primary" value="Create" />
                             </div>
                         </form>
                     </div>

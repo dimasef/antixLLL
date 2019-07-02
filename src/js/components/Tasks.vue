@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="task-list">
         <TaskModal @update-list="updateTaskList" />
-        <div class="tasks">
+        <div class="task-list--content">
             <div class="task-item" 
                 v-for="(task, index) in tasks"
                 :index="index"

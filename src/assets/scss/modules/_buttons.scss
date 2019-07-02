@@ -3,22 +3,29 @@
     border-radius: 2px;
     font-size: 14px;
     color: white;
-    background-size: 200% 200%;
     cursor: pointer;
     transition: all 400ms ease-in-out;
     &-primary {
-        background: linear-gradient(-90deg, #4a1b9e, #ce3ee6);
-        @include animationGradient(3s);
+        background: $primary;
+        box-shadow: 0px 4px 14px 2px $primary-light;
+        padding: 7px 21px;
     }
     &-circle {
         border-radius: 50%;
         @include size(50px);
-        line-height: 1;
+        line-height: 0;
+        padding: 0;
     }
     
     .plus-icon {
         background-image: url(/assets/img/plus.svg);
         display: inline-block;
         @include size(20px);
+    }
+    
+    &.animated {
+        background: linear-gradient(-90deg, $primary, $primary-light);
+        @include animationGradient(3s);
+        background-size: 200% 200%;
     }
 }
