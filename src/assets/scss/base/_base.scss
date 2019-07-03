@@ -43,6 +43,31 @@ body {
             font-size: 36px;
             padding-left: 7px;
         }
+        .weekday-settings-items {
+          padding-top: 30px;
+          .day-item {
+            display: inline-block;
+            border: 2px solid $primary;
+            @include size(50px);
+            line-height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 400ms ease-in-out;
+            &:not(:last-child) {margin-right: 21px;}
+
+            &.opted {
+              background: linear-gradient(90deg, $primary, $primary-light);
+              @include animationGradient(3s);
+              background-size: 200% 200%;
+              box-shadow: 0px 4px 14px 2px #c36bd2;
+              color: white;
+              transition: all 400ms ease-in-out;
+            }
+          }
+        }
       } 
 
       &--content {

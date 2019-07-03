@@ -26,6 +26,9 @@
                                     <input class="checkbox-style" v-model="taskParam.eternity" type="checkbox" />
                                     <span class="checkbox-style-label">Daily task</span>
                                 </label>
+                                 <div class="weekday-settings-items">
+                                    <span v-for="(day, index) in days" class="day-item" :key="index" :class="{opted: day.checked}">{{day.name}}</span>
+                                </div>
                             </div>
 
                             <div class="modal-footer align-center">
@@ -50,7 +53,16 @@
                     text: null,
                     time: null,
                     eternity: false
-                }
+                },
+                days: [
+                    {name: 'Mon', checked: true},
+                    {name: 'Tue', checked: true},
+                    {name: 'Wed', checked: true},
+                    {name: 'Thu', checked: true},
+                    {name: 'Fri', checked: true},
+                    {name: 'Sat', checked: true},
+                    {name: 'Sun', checked: true}
+                ]
             }
         },
         methods: {
