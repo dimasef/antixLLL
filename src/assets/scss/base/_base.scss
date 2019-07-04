@@ -20,57 +20,71 @@ body {
   }
 
   /* Column wrap */
-  .columns {
+.columns {
     display: flex;
     flex-wrap: wrap;
     margin-right: ($column-gap / -2);
     margin-left: ($column-gap / -2);
-  }
+}
 
-  .stab {
-      width: 100%;
-      border-radius: 2px;
-      height: 106px;
-      background: white;
-      margin-bottom: 34px;
-  }
+.stab {
+    width: 100%;
+    border-radius: 2px;
+    height: 106px;
+    background: white;
+    margin-bottom: 34px;
+}
 
-  .task-list {
-      &--header {
+.task-list {
+    &--header {
         display: flex;
         align-items: center;
         .list-title {
             font-size: 36px;
             padding-left: 7px;
         }
-        .weekday-settings-items {
-          padding-top: 30px;
-          .day-item {
-            display: inline-block;
-            border: 2px solid $primary;
-            @include size(50px);
-            line-height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 400ms ease-in-out;
-            &:not(:last-child) {margin-right: 21px;}
-
-            &.opted {
-              background: linear-gradient(90deg, $primary, $primary-light);
-              @include animationGradient(3s);
-              background-size: 200% 200%;
-              box-shadow: 0px 4px 14px 2px #c36bd2;
-              color: white;
-              transition: all 400ms ease-in-out;
+        .weekday-settings {
+            display: flex;
+            align-items: center;
+            margin-top: 7px;
+            &-manage {
+                padding-top: 7px;
+                .btn-weekday {
+                    width: 100px;
+                    font-size: 12px;
+                    padding: 3px 0px;
+                    margin-left: 21px;
+                }
             }
-          }
-        }
-      } 
+            &-items {
+                padding-top: 30px;
+                .day-item {
+                    display: inline-block;
+                    border: 2px solid $primary;
+                    @include size(50px);
+                    line-height: 45px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: 600;
+                    transition: all 400ms ease-in-out;
+                    &:not(:last-child) {margin-right: 21px;}
 
-      &--content {
+                    &.opted {
+                        background: linear-gradient(90deg, $primary, $primary-light);
+                        @include animationGradient(3s);
+                        background-size: 200% 200%;
+                        box-shadow: 0px 4px 14px 2px #c36bd2;
+                        color: white;
+                        transition: all 400ms ease-in-out;
+                    }
+                }
+            }
+        }
+    } 
+
+    &--content {
           
     } 
-  }
+}

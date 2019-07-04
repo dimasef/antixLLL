@@ -22,12 +22,24 @@
                                         <option value="2">hour</option>
                                     </select>
                                 </div>
-                                 <label>
-                                    <input class="checkbox-style" v-model="taskParam.eternity" type="checkbox" />
-                                    <span class="checkbox-style-label">Daily task</span>
-                                </label>
-                                 <div class="weekday-settings-items">
-                                    <span v-for="(day, index) in days" class="day-item" :key="index" :class="{opted: day.checked}">{{day.name}}</span>
+                                <div class="weekday-settings">
+                                    <label>
+                                        <input class="checkbox-style" v-model="taskParam.eternity" type="checkbox" />
+                                        <span class="checkbox-style-label">Daily task</span>
+                                    </label>
+                                    <span class="weekday-settings-manage" v-show="isDaysShowed">
+                                        <button class="btn btn-secondary btn-weekday">Remove all</button>
+                                        <button class="btn btn-secondary btn-weekday">Odd</button>
+                                        <button class="btn btn-secondary btn-weekday">Random</button>
+                                    </span>
+                                </div>
+                                <div class="weekday-settings-items" v-show="isDaysShowed">
+                                    <span 
+                                        v-for="(day, index) in days" 
+                                        class="day-item" :key="index" 
+                                        :class="{opted: day.checked}"
+                                        @click="day.checked = !day.checked"
+                                    >{{day.name}}</span>
                                 </div>
                             </div>
 
@@ -78,11 +90,15 @@
 
             onModalToggle() {
                 this.showModal = !this.showModal;
-            }
+            },
+
+
         },
 
         computed: {
-
+            isDaysShowed() {
+                return this.taskParam.eternity ? true : false;
+            }
         }
     }
 </script>

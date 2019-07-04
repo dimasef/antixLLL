@@ -4,9 +4,12 @@ $font-base:      'Poppins', sans-serif;
 $gray:          #F1F1F1;
 $gray-100:      #E1E1E1;
 
-$primary:       #902EC5 !default;
+$primary:         #902EC5 !default;
 $primary-light:   lighten($primary, 15%) !default;
 $primary-dark:    darken($primary, 15%) !default;
+$secondary:       #24A49A !default;
+$secondary-light: lighten($secondary, 15%) !default;
+$secondary-dark:  darken($secondary, 15%) !default;
 
 $bg-body:         $gray;
 
