@@ -7,6 +7,17 @@
     background: rgba(0, 0, 0, 0.7);
     display: table;
     transition: opacity .3s ease;
+
+    &-close {
+      font-size: 34px;
+      font-weight: 300;
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+      padding: .5rem .5rem;
+      margin: -21px -14px;
+    }
     
     &-wrapper {
       display: table-cell;
@@ -23,6 +34,7 @@
       font-size: 36px;
       font-weight: 400;
       margin-bottom: 14px;
+      position: relative;
     }
     
     &-container {

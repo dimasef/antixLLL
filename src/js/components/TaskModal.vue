@@ -7,10 +7,11 @@
         <transition name="modal">
             <div class="modal" v-show="showModal" @click="onModalToggle">
                 <div class="modal-wrapper">
-                    <div class="modal-container" @click.stop>
+                    <div class="modal-container" @click.stop> 
                         <form action="/" method="post" @submit.prevent="checkForm">
                             <div class="modal-header">
                                 <h2 class="modal-title">Creating new task</h2>
+                                <span @click="onModalToggle" class="modal-close">×</span>
                             </div>
 
                             <div class="modal-body">
