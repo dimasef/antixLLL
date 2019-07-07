@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
         time: req.body.data.time,
         doneStatus: false,
         eternity: req.body.data.eternity,
+        activeDays: req.body.data.activeDays,
         createdAt: new Date()
     });
     res.status(201).send();
@@ -34,7 +35,7 @@ router.delete('/:id', async (req, res) => {
 async function loadPostCollection() {
     const localDbUri = 'mongodb://localhost:27017/';
     const uri = "mongodb+srv://user_777:root777@cluster0-bc6uj.mongodb.net/test?retryWrites=true&w=majority";
-    const client = await db.MongoClient.connect(uri, {
+    const client = await db.MongoClient.connect(localDbUri, {
         useNewUrlParser: true
     });
     return client.db('antixToDo').collection('tasks');

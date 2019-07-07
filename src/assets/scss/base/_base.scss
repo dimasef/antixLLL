@@ -54,6 +54,8 @@ body {
                     font-size: 12px;
                     padding: 3px 0px;
                     margin-left: 21px;
+                    display: inline-block;
+                    text-align: center;
                 }
             }
             &-items {
@@ -82,9 +84,5 @@ body {
                 }
             }
         }
-    } 
-
-    &--content {
-          
     } 
 }
