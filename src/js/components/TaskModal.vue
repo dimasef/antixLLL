@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="modal-footer align-center">
-                                <input type="submit" class="btn btn-primary" value="Create" />
+                                <input type="submit" class="btn btn-primary btn-create" value="Create" />
                             </div>
                         </form>
                     </div>
@@ -82,30 +82,13 @@
         data () {
             return {
                 showModal: false,
-                taskParam: {
-                    text: '',
-                    time: null,
-                    timeStatus: 0,
-                    eternity: false
-                },
-                validationErrors: {
-                    text: '',
-                    time: '',
-                    eternity: ''
-                },
-                days: [
-                    {name: 'Mon', checked: true},
-                    {name: 'Tue', checked: true},
-                    {name: 'Wed', checked: true},
-                    {name: 'Thu', checked: true},
-                    {name: 'Fri', checked: true},
-                    {name: 'Sat', checked: true},
-                    {name: 'Sun', checked: true}
-                ],
-                chooseDaysParam: {
-                    removedAll: false,
-                    odd: false
-                }
+                taskParam: {text: '',time: null,timeStatus: 0,eternity: false},
+                validationErrors: {text: '',time: '',eternity: ''},
+                days: [{name: 'Mon', checked: true},{name: 'Tue', checked: true},
+                    {name: 'Wed', checked: true},{name: 'Thu', checked: true},
+                    {name: 'Fri', checked: true},{name: 'Sat', checked: true},
+                    {name: 'Sun', checked: true}],
+                chooseDaysParam: {removedAll: false,odd: false}
             }
         },
         methods: {
