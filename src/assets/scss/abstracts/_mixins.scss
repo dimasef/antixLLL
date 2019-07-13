@@ -1,19 +1,35 @@
 @mixin animationGradient($time){
-    animation: Gradient $time ease infinite
+  animation: Gradient $time ease infinite
 }
 
 @mixin size($width, $height: $width) {
-    width: $width;
-    height: $height;
+  width: $width;
+  height: $height;
 }
 
 @mixin device-up($name, $breakpoints: $grid-breakpoints) {
-    $min: map-get($breakpoints, $name);
-    @if if(0 != $min, $min, null) {
-      @media (min-width: $min) {
-        @content;
-      }
-    } @else {
+  $min: map-get($breakpoints, $name);
+  @if if(0 != $min, $min, null) {
+    @media (min-width: $min) {
       @content;
     }
+  } @else {
+    @content;
   }
+}
+
+@mixin spacing() {
+  @each $prop, $abbrev in (margin: m, padding: p) {
+    @each $size, $lengths in $spacers {
+      $length-x:   map-get($lengths, x);
+      $length-y:   map-get($lengths, y);
+
+      .#{$abbrev}-#{$size} { #{$prop}:         $length-y $length-x !important; }
+      .#{$abbrev}t-#{$size} { #{$prop}-top:    $length-y !important; }
+      .#{$abbrev}r-#{$size} { #{$prop}-right:  $length-x !important; }
+      .#{$abbrev}b-#{$size} { #{$prop}-bottom: $length-y !important; }
+      .#{$abbrev}l-#{$size} { #{$prop}-left:   $length-x !important; }
+    }
+  }
+}
+

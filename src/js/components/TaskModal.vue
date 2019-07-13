@@ -1,9 +1,9 @@
 <template>
-    <div class="task-list--header">
+    <div class="task-list--header mb-5">
         <button @click="onModalToggle" class="btn btn-primary btn-circle animated">
             <i class="plus-icon"></i>
         </button>
-        <span class="list-title">Task list:</span>
+        <span class="list-title pl-1">Task list:</span>
         <transition name="modal">
             <div class="modal" v-show="showModal" @click="onModalToggle">
                 <div class="modal-wrapper">

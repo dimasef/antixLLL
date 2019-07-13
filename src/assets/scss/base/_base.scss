@@ -1,8 +1,10 @@
+@include spacing;
+
 body {
     font-family: $font-base;
     margin: 0;
     background-color: $bg-body;
-    padding-top: 24px;
+    padding-top: 21px;
 }
 
 /* Container */
@@ -27,22 +29,13 @@ body {
     margin-left: ($column-gap / -2);
 }
 
-.stab {
-    width: 100%;
-    border-radius: 2px;
-    height: 106px;
-    background: white;
-    margin-bottom: 34px;
-}
 
 .task-list {
     &--header {
         display: flex;
         align-items: center;
-        margin-bottom: 35px;
         .list-title {
             font-size: 36px;
-            padding-left: 7px;
         }
         .weekday-settings {
             display: flex;
@@ -89,6 +82,7 @@ body {
 }
 .task-item {
     display: flex;
+    position: relative;
     &--switch {
         flex-grow: 1;
         display: flex;
@@ -117,6 +111,20 @@ body {
             display: inline-block;
             @include size(10px);
             cursor: pointer;
+        }
+    }
+
+    &.task-hidden {
+        &::before {
+            content: ''; 
+            position: absolute;
+            left: 0;
+            top: 0;
+            @include size(100%);
+            z-index: 1;
+            border-radius: 2px;
+            background: linear-gradient(10deg, #0c0c0c, rgba(#0c0c0c, 0.3));
+            background-size: 200% 200%;
         }
     }
 }

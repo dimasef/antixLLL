@@ -1,5 +1,5 @@
 <template>
-    <div class="panel task-item">
+    <div class="panel task-item mb-2">
         <div class="task-item--switch">
             <div class="switch">
                 <label>
