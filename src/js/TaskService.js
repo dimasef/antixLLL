@@ -31,4 +31,8 @@ export default class TaskService {
         return axios.delete(`${url}${id}`);
     }
 
+    static updateTask(id, doneStatus) {
+        return axios.put(`${url}${id}`, {doneStatus});
+    }
+
 }

@@ -39,6 +39,7 @@ body {
     &--header {
         display: flex;
         align-items: center;
+        margin-bottom: 35px;
         .list-title {
             font-size: 36px;
             padding-left: 7px;
@@ -85,4 +86,37 @@ body {
             }
         }
     } 
+}
+.task-item {
+    display: flex;
+    &--switch {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &--content {
+        flex-grow: 8;
+        font-size: 14px;
+        & .task-spend-time {
+            color: $gray-200;
+        }
+    }
+    &--manage {
+        flex-grow: 2;
+        display: flex;
+        justify-content: flex-end;
+        & .infinity-icon {
+            background: url(/assets/img/infinity.svg);
+            display: inline-block;
+            @include size(26px, 10px);
+            margin-right: 21px;
+        }
+        & .task-remove {
+            background: url(/assets/img/cross.svg) no-repeat;
+            display: inline-block;
+            @include size(10px);
+            cursor: pointer;
+        }
+    }
 }

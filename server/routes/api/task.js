@@ -23,6 +23,16 @@ router.post('/', async (req, res) => {
     res.status(201).send();
 });
 
+//Update Tasks
+router.put('/:id', async (req, res) => {
+    const tasks = await loadPostCollection();
+    await tasks.updateOne(
+        {_id: new db.ObjectID(req.params.id)},
+        {$set: {"doneStatus": req.body.doneStatus}},
+    );
+    res.status(200).send();
+});
+
 //Delete Tasks
 router.delete('/:id', async (req, res) => {
     const tasks = await loadPostCollection();
@@ -38,6 +48,7 @@ async function loadPostCollection() {
     const client = await db.MongoClient.connect(localDbUri, {
         useNewUrlParser: true
     });
+
     return client.db('antixToDo').collection('tasks');
 }
 

@@ -8,7 +8,7 @@
             <div class="modal" v-show="showModal" @click="onModalToggle">
                 <div class="modal-wrapper">
                     <div class="modal-container" @click.stop> 
-                        <form action="/" method="post" @submit.prevent="checkForm">
+                        <form action="/" method="post" @submit.prevent="submitForm">
                             <div class="modal-header">
                                 <h2 class="modal-title">Creating new task</h2>
                                 <span @click="onModalToggle" class="modal-close">×</span>
@@ -76,14 +76,14 @@
 </template>
 
 <script>
-    import TaskService from '../TaskService'
+    import TaskService from '../TaskService';
+    import ValidateMixin from '../mixins/ValidateMixin'
 
     export default {
+        mixins: [ValidateMixin],
         data () {
             return {
                 showModal: false,
-                taskParam: {text: '',time: null,timeStatus: 0,eternity: false},
-                validationErrors: {text: '',time: '',eternity: ''},
                 days: [{name: 'Mon', checked: true},{name: 'Tue', checked: true},
                     {name: 'Wed', checked: true},{name: 'Thu', checked: true},
                     {name: 'Fri', checked: true},{name: 'Sat', checked: true},
@@ -92,7 +92,7 @@
             }
         },
         methods: {
-            async checkForm() {
+            async submitForm() {
                 if(this.validation()) {
                     await TaskService.insertTask({
                         text: this.taskParam.text, 
@@ -101,6 +101,7 @@
                         activeDays: this.taskParam.eternity ? this.getActiveDays() : []
                     });
                     this.$emit('update-list');
+                    this.onModalToggle();
                     return;
                 }
             },
@@ -118,21 +119,6 @@
             getActiveDays() {
                 const activeDays = this.days.filter(item => item.checked);
                 return activeDays.map(item =>  item.name);
-            },
-
-            validation() {
-                let validationResult = true;
-                this.validationErrors.text = (this.taskParam.text.length < 1 || this.taskParam.text.length > 255) ?  'Field should be valid' : '';
-                this.validationErrors.time = (this.convertedTime <= 0 || this.convertedTime > 1320) ? 'Field should be valid' : '';
-                this.validationErrors.eternity = (this.taskParam.eternity && this.days.every(item => !item.checked)) ? 'Select at least 1 day' : '';
-
-                for(let prop in this.validationErrors) {
-                    if(this.validationErrors[prop] !== '') {
-                        validationResult = false;
-                        break;
-                    }
-                }
-                return validationResult;
             },
 
             toggleAllDays() {
