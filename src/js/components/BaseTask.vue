@@ -54,11 +54,10 @@
             },
 
             isNeedToPerform(activeDays) {
-                const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-                const currentDay = days[new Date().getDay() - 1]
+                const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                const currentDay = days[new Date().getDay()];
                 return activeDays.includes(currentDay) ? true : false;
             }
-
         }
     }
 </script>
