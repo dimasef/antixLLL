@@ -45,7 +45,7 @@ router.delete('/:id', async (req, res) => {
 async function loadPostCollection() {
     const localDbUri = 'mongodb://localhost:27017/';
     const uri = "mongodb+srv://user_777:root777@cluster0-bc6uj.mongodb.net/test?retryWrites=true&w=majority";
-    const client = await db.MongoClient.connect(localDbUri, {
+    const client = await db.MongoClient.connect(uri, {
         useNewUrlParser: true
     });
 

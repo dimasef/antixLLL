@@ -1,5 +1,16 @@
+
 .progress {
     height: 4px;
     width: 100%;
     background-color: $gray;
+    &-done-line {
+        background-color: $secondary;
+        height: inherit;
+        transition: 0.3s linear;
+
+        &.bg-color-badly     {background-color: #EB2D2D}
+        &.bg-color-poorly    {background-color: #FF4E16}
+        &.bg-color-decently  {background-color: #FFDE3C}
+        &.bg-color-perfectly {background-color: #24A49A}
+    }
 }

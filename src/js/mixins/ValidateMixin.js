@@ -20,5 +20,11 @@ export default {
             }
             return validationResult;
         },
+
+        errorCleaning() {
+            for(let prop in this.validationErrors) {
+                if(this.validationErrors[prop] !== '') this.validationErrors[prop] = '';     
+            }
+        },
     }
 }

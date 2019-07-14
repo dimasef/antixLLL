@@ -34,6 +34,12 @@ body {
     &--header {
         display: flex;
         align-items: center;
+        max-width: 700px;
+
+        & .right-align {
+            margin-left: auto;
+        }
+
         .list-title {
             font-size: 36px;
         }
@@ -126,5 +132,5 @@ body {
             background: linear-gradient(10deg, #0c0c0c, rgba(#0c0c0c, 0.3));
             background-size: 200% 200%;
         }
-    }
+    }    
 }

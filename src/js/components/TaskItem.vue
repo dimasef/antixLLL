@@ -23,7 +23,8 @@
 
     export default {
         props: ['id', 'time', 'description', 'eternity', 'isDone'],
-         data () {
+        
+        data () {
             return {
                 doneStatus: this.isDone,
                 Tasktime: this.time
@@ -38,6 +39,10 @@
 
             async updateTask() {
                 await TaskService.updateTask(this.id, this.doneStatus);
+                this.$emit('progress-updated', {
+                    doneStatus: this.doneStatus,
+                    time: this.Tasktime
+                });
             }
         },
 

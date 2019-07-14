@@ -9,3 +9,14 @@
         background-position: 0% 50%;
     }
 }
+
+.v-fade {
+    display: inherit !important; /* override v-show display: none */
+    transition: opacity 0.5s;
+  }
+  
+  .v-fade[style*="display: none;"] {
+    opacity: 0;
+    pointer-events: none; /* disable user interaction */
+    user-select: none; /* disable user selection */
+  }
