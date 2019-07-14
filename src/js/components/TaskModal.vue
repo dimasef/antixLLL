@@ -57,7 +57,6 @@
                             </div>
                             <p class="valid-err" v-show="!!validationErrors.eternity" v-text="validationErrors.eternity"></p>
                         </div>
-
                         <div class="modal-footer align-center">
                             <input type="submit" class="btn btn-primary btn-create" value="Create" />
                         </div>

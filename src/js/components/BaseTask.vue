@@ -67,7 +67,6 @@
                 } catch(err) {
                     console.error("Server is't working!");
                 }
-
                 this.alreadyDoneTime = this.getAlreadyDoneTime;
             },
 
@@ -85,8 +84,6 @@
             onHiddenTasksToggle() {
                 this.isShowHiddenList = !this.isShowHiddenList;
             },
-
-            
         },
 
         computed: {
